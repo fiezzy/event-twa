@@ -1,0 +1,51 @@
+{
+  "extends": ["react-app", "prettier"],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "reservedFirst": true
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.stories.*"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    }
+  ]
+}
