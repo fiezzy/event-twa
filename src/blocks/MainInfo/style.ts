@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Button as UIButton } from 'ui'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -7,12 +6,8 @@ export const Wrapper = styled.div`
   gap: 24px;
 `
 
-export const ButtonsWrapper = styled.div`
+export const DetailsWrapper = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 12px;
-`
-
-export const Button = styled(UIButton)`
-  width: 50%;
 `

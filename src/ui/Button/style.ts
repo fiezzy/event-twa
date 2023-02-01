@@ -12,8 +12,4 @@ export const Wrapper = styled.button`
   color: ${({ theme }) => theme.color.btnText};
   transition: 0.3s;
   cursor: pointer;
-
-  &:hover {
-    opacity: 0.6;
-  }
 `
