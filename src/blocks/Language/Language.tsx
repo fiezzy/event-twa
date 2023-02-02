@@ -1,14 +1,10 @@
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Block } from 'types/app'
+import { BlockProps } from 'types/app'
 import { Title, Label } from 'ui'
 import * as S from './style'
 
-type LanguageProps = {
-  changeActiveBlock: (block: Block) => void
-}
-
-export const Language: FC<LanguageProps> = (props) => {
+export const Language: FC<BlockProps> = (props) => {
   const { changeActiveBlock } = props
 
   const { t, i18n } = useTranslation('blockLanguage')

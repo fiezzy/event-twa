@@ -1,10 +1,14 @@
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
+import { BlocksNames } from 'constants/app'
+import { BlockProps } from 'types/app'
 import { Title, Label, Button } from 'ui'
 import * as S from './style'
 
-export const MainInfo: FC = () => {
-  const { t } = useTranslation('blockMainInfo')
+export const MainInfo: FC<BlockProps> = (props) => {
+  const { changeActiveBlock } = props
+
+  const { t } = useTranslation(['blockMainInfo'])
 
   return (
     <S.Wrapper>
@@ -35,8 +39,12 @@ export const MainInfo: FC = () => {
         </Label>
       </S.DetailsWrapper>
       <S.DetailsWrapper>
-        <Button>{t('Participate')}</Button>
-        <Button>{t('Next')}</Button>
+        <Button onClick={() => changeActiveBlock(BlocksNames.EventFormat)}>
+          {t('Participate')}
+        </Button>
+        <Button onClick={() => changeActiveBlock(BlocksNames.InvestInfo)}>
+          {t('Next')}
+        </Button>
       </S.DetailsWrapper>
     </S.Wrapper>
   )

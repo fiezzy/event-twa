@@ -34,3 +34,7 @@ export type Block =
   | 'roles'
   | 'payment'
   | 'finalInfo'
+
+export type BlockProps = {
+  changeActiveBlock: (block: Block) => void
+}

@@ -1,20 +1,18 @@
-import { FC } from 'react'
-import { Language, MainInfo } from 'blocks'
-import { Block } from 'types/app'
+import { FC, useContext } from 'react'
+import { Language, MainInfo, InvestInfo } from 'blocks'
+import { BlocksNames } from 'constants/app'
+import { ActiveBlockContext } from 'context'
 
-type BlockLayout = {
-  activeBlock: Block
-  handleActiveBlockChange: (block: Block) => void
-}
-
-export const BlocksLayout: FC<BlockLayout> = (props) => {
-  const { activeBlock, handleActiveBlockChange } = props
+export const BlocksLayout: FC = () => {
+  const { activeBlock, changeActiveBlock } = useContext(ActiveBlockContext)
 
   switch (activeBlock) {
-    case 'language':
-      return <Language changeActiveBlock={handleActiveBlockChange} />
-    case 'mainInfo':
-      return <MainInfo />
+    case BlocksNames.Language:
+      return <Language changeActiveBlock={changeActiveBlock} />
+    case BlocksNames.MainInfo:
+      return <MainInfo changeActiveBlock={changeActiveBlock} />
+    case BlocksNames.InvestInfo:
+      return <InvestInfo changeActiveBlock={changeActiveBlock} />
     default:
       return <div />
   }
