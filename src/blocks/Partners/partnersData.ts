@@ -1,0 +1,15 @@
+export const partners: string[] = [
+  'TON BANKING',
+  'TON FOUNDATION',
+  'VC: RHI Rich Man Invest club',
+  'VC: GB DXB',
+  'VC: Hexit Capital',
+  'VC: DWF Labs',
+  'MindRock Capital',
+  'VC: Afford.Capital',
+  'VC: MXHUB.',
+  'Wasim Alimam (Angel investor)',
+  'VC: AM Capital',
+  'VC: Voronkov Ventures',
+  'VC: Mempool Ventures',
+]
