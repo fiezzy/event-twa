@@ -1,12 +1,12 @@
 import { FC } from 'react'
+import { Image } from 'blocks'
 import { BlocksLayout } from 'features/BlocksLayout/BlocksLayout'
 import { Layout } from 'features/Layout/Layout'
-import { SvgMain } from 'ui/icons'
 
 const App: FC = () => {
   return (
     <Layout>
-      <SvgMain />
+      <Image />
       <BlocksLayout />
     </Layout>
   )
