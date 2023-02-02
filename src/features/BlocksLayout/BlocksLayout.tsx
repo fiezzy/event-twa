@@ -1,5 +1,5 @@
 import { FC, useContext } from 'react'
-import { Language, MainInfo, InvestInfo } from 'blocks'
+import { Language, MainInfo, InvestInfo, Roles } from 'blocks'
 import { Partners } from 'blocks'
 import { EventFormat } from 'blocks/EventFormat/EventFormat'
 import { BlocksNames } from 'constants/app'
@@ -19,6 +19,8 @@ export const BlocksLayout: FC = () => {
       return <EventFormat changeActiveBlock={changeActiveBlock} />
     case BlocksNames.Partners:
       return <Partners changeActiveBlock={changeActiveBlock} />
+    case BlocksNames.Roles:
+      return <Roles changeActiveBlock={changeActiveBlock} />
     default:
       return <div />
   }

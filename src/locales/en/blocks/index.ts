@@ -3,6 +3,7 @@ import blockInvestInfo from './blockInvestInfo.json'
 import blockLanguage from './blockLanguage.json'
 import blockMainInfo from './blockMainInfo.json'
 import blockPartners from './blockPartners.json'
+import blockRoles from './blockRoles.json'
 
 export {
   blockLanguage,
@@ -10,4 +11,5 @@ export {
   blockInvestInfo,
   blockEventFormat,
   blockPartners,
+  blockRoles,
 }
