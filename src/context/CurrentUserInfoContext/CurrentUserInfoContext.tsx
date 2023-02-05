@@ -4,6 +4,7 @@ import { FormValues } from 'blocks/VcForm/types'
 import { FCWithChildren } from 'types/app'
 
 export type InfoType = {
+  user?: string
   role?: Role
   promocode?: string
   eventFormat?: string

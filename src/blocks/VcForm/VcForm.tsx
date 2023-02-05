@@ -1,5 +1,6 @@
 import { FC, useCallback, useState } from 'react'
 import { Formik, FormikConfig } from 'formik'
+import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Title, Input, Checkbox, Button } from 'ui'
 import {
@@ -29,6 +30,8 @@ export const VcForm: FC<BlockProps> = (props) => {
   const [activeFormField, setActiveFormField] =
     useState<ActiveFormField>('category')
 
+  const { onClose } = useTelegram()
+
   const initialValues: FormValues = {
     category: [],
     industriesOfInterest: [],
@@ -43,8 +46,9 @@ export const VcForm: FC<BlockProps> = (props) => {
   const handleSubmit = useCallback<FormikConfig<FormValues>['onSubmit']>(
     (values) => {
       changeCurrentUserInfo!({ ...userInfo, formData: values })
+      onClose()
     },
-    [changeCurrentUserInfo, userInfo]
+    [changeCurrentUserInfo, onClose, userInfo]
   )
 
   const getActiveFormField = (
