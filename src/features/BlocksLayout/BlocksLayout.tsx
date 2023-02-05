@@ -1,5 +1,13 @@
 import { FC, useContext } from 'react'
-import { Language, MainInfo, InvestInfo, Roles, VcForm, Promo } from 'blocks'
+import {
+  Language,
+  MainInfo,
+  InvestInfo,
+  Roles,
+  VcForm,
+  Promo,
+  StartupForm,
+} from 'blocks'
 import { Partners } from 'blocks'
 import { EventFormat } from 'blocks/EventFormat/EventFormat'
 import { BlocksNames } from 'constants/app'
@@ -39,6 +47,14 @@ export const BlocksLayout: FC = () => {
     case BlocksNames.VcForm:
       return (
         <VcForm
+          changeActiveBlock={changeActiveBlock}
+          changeCurrentUserInfo={changeCurrentUserInfo}
+          userInfo={info}
+        />
+      )
+    case BlocksNames.StartupForm:
+      return (
+        <StartupForm
           changeActiveBlock={changeActiveBlock}
           changeCurrentUserInfo={changeCurrentUserInfo}
           userInfo={info}
