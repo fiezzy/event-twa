@@ -4,23 +4,32 @@ import { BlocksNames } from 'constants/app'
 import { BlockProps } from 'types/app'
 import { Button, Label, Title } from 'ui'
 import { rolesData } from './rolesData'
-import { Price } from './rolesData'
 import * as S from './style'
+import { Price, Role } from './types'
 
 export const Roles: FC<BlockProps> = (props) => {
-  const { changeActiveBlock } = props
+  const { changeActiveBlock, changeCurrentUserInfo, userInfo } = props
 
   const { t } = useTranslation('blockRoles')
 
-  const handleRoleClick = (price: Price) => {
-    if (price === 'free') {
-      alert('Free !')
+  const handleRoleClick = (role: Role, price: Price) => {
+    changeCurrentUserInfo!({ ...userInfo, role })
 
-      return
+    switch (role) {
+      case 'Guest':
+        changeActiveBlock(BlocksNames.Promo)
+        break
+      case 'Company':
+      case 'Startup':
+        changeActiveBlock(BlocksNames.StartupForm)
+        break
+      case 'Private investor':
+      case 'Private fund':
+        changeActiveBlock(BlocksNames.VcForm)
+        break
     }
 
-    alert(`USD: ${price.usd}, TON: ${price.ton}`)
-    changeActiveBlock(BlocksNames.Quiz)
+    // changeActiveBlock(BlocksNames.Quiz)
   }
 
   return (
@@ -30,7 +39,7 @@ export const Roles: FC<BlockProps> = (props) => {
       <S.ButtonsWrapper>
         {rolesData.map(({ role, price }) => {
           return (
-            <Button key={role} onClick={() => handleRoleClick(price)}>
+            <Button key={role} onClick={() => handleRoleClick(role, price)}>
               {role}
             </Button>
           )

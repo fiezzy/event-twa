@@ -6,9 +6,14 @@ import { Title, Label } from 'ui'
 import * as S from './style'
 
 export const EventFormat: FC<BlockProps> = (props) => {
-  const { changeActiveBlock } = props
+  const { changeActiveBlock, changeCurrentUserInfo } = props
 
   const { t } = useTranslation('blockEventFormat')
+
+  const handleFormatBtnClick = (format: 'online' | 'offline') => {
+    changeCurrentUserInfo!({ eventFormat: format })
+    changeActiveBlock(BlocksNames.Roles)
+  }
 
   return (
     <S.Wrapper>
@@ -19,10 +24,10 @@ export const EventFormat: FC<BlockProps> = (props) => {
         )}
       </Label>
       <S.ButtonsWrapper>
-        <S.Button onClick={() => changeActiveBlock(BlocksNames.Roles)}>
+        <S.Button onClick={() => handleFormatBtnClick('online')}>
           {t('Online')}
         </S.Button>
-        <S.Button onClick={() => changeActiveBlock(BlocksNames.Roles)}>
+        <S.Button onClick={() => handleFormatBtnClick('offline')}>
           {t('Offline')}
         </S.Button>
       </S.ButtonsWrapper>

@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
+import { InfoType } from 'context/CurrentUserInfoContext/CurrentUserInfoContext'
 import { defaultNS, resources } from 'i18n'
 import 'i18next'
 
@@ -32,10 +33,14 @@ export type Block =
   | 'partners'
   | 'eventFormat'
   | 'roles'
-  | 'quiz'
+  | 'promo'
+  | 'vcForm'
+  | 'startupForm'
   | 'payment'
   | 'finalInfo'
 
 export type BlockProps = {
   changeActiveBlock: (block: Block) => void
+  userInfo?: InfoType
+  changeCurrentUserInfo?: (info: InfoType) => void
 }

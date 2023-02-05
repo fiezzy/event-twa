@@ -1,12 +1,14 @@
 import { FC, useContext } from 'react'
-import { Language, MainInfo, InvestInfo, Roles, Quiz } from 'blocks'
+import { Language, MainInfo, InvestInfo, Roles, VcForm, Promo } from 'blocks'
 import { Partners } from 'blocks'
 import { EventFormat } from 'blocks/EventFormat/EventFormat'
 import { BlocksNames } from 'constants/app'
-import { ActiveBlockContext } from 'context'
+import { ActiveBlockContext, CurrentUserInfoContext } from 'context'
 
 export const BlocksLayout: FC = () => {
   const { activeBlock, changeActiveBlock } = useContext(ActiveBlockContext)
+
+  const { info, changeCurrentUserInfo } = useContext(CurrentUserInfoContext)
 
   switch (activeBlock) {
     case BlocksNames.Language:
@@ -16,13 +18,32 @@ export const BlocksLayout: FC = () => {
     case BlocksNames.InvestInfo:
       return <InvestInfo changeActiveBlock={changeActiveBlock} />
     case BlocksNames.EventFormat:
-      return <EventFormat changeActiveBlock={changeActiveBlock} />
+      return (
+        <EventFormat
+          changeActiveBlock={changeActiveBlock}
+          changeCurrentUserInfo={changeCurrentUserInfo}
+        />
+      )
     case BlocksNames.Partners:
       return <Partners changeActiveBlock={changeActiveBlock} />
     case BlocksNames.Roles:
-      return <Roles changeActiveBlock={changeActiveBlock} />
-    case BlocksNames.Quiz:
-      return <Quiz changeActiveBlock={changeActiveBlock} />
+      return (
+        <Roles
+          changeActiveBlock={changeActiveBlock}
+          changeCurrentUserInfo={changeCurrentUserInfo}
+          userInfo={info}
+        />
+      )
+    case BlocksNames.Promo:
+      return <Promo changeActiveBlock={changeActiveBlock} />
+    case BlocksNames.VcForm:
+      return (
+        <VcForm
+          changeActiveBlock={changeActiveBlock}
+          changeCurrentUserInfo={changeCurrentUserInfo}
+          userInfo={info}
+        />
+      )
     default:
       return <div />
   }

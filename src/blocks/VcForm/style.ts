@@ -23,3 +23,15 @@ export const CheckboxWrapper = styled.div`
 export const Label = styled(UILabel)`
   max-width: 220px;
 `
+
+export const FieldWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`
+
+export const CheckboxesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`

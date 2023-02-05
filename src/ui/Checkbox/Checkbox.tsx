@@ -3,18 +3,19 @@ import { SvgCheckMark } from 'ui/icons'
 import * as S from './style'
 
 type CheckboxProps = {
-  onChange: (value: boolean) => void
+  onChange: (name: string) => void
   value?: boolean
+  name: string
 }
 
 export const Checkbox: FC<CheckboxProps> = (props) => {
-  const { onChange, value = false } = props
+  const { onChange, value = false, name } = props
 
   const [isChecked, setIsChecked] = useState<boolean>(value)
 
   const handleCheckboxClick = () => {
     setIsChecked((prev) => !prev)
-    onChange(isChecked)
+    onChange(name)
   }
 
   return (

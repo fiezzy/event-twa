@@ -35,7 +35,7 @@ export const Input: FC<InputProps> = (props) => {
       max={max}
       min={min}
       name={name}
-      onChange={onChange}
+      onChange={(e) => onChange(e)}
       placeholder={placeholder}
       type={type}
       value={value}

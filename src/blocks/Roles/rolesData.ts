@@ -1,14 +1,4 @@
-export type Price =
-  | {
-      usd: number
-      ton: number
-    }
-  | 'free'
-
-type Roles = {
-  role: string
-  price: Price
-}
+import { Roles } from './types'
 
 export const rolesData: Roles[] = [
   {

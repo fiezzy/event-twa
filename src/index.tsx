@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from 'assets/style/GlobalStyle'
 import { theme } from 'assets/style/theme'
 import { ActiveBlockProvider } from 'context'
+import { CurrentUserInfoProvider } from 'context'
 import App from './App'
 import i18n from './i18n'
 
@@ -15,7 +16,9 @@ root.render(
     <I18nextProvider i18n={i18n}>
       <ThemeProvider theme={theme}>
         <ActiveBlockProvider>
-          <App />
+          <CurrentUserInfoProvider>
+            <App />
+          </CurrentUserInfoProvider>
         </ActiveBlockProvider>
         <GlobalStyle />
       </ThemeProvider>

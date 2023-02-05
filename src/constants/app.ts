@@ -5,7 +5,9 @@ export const BlocksNames = {
   Partners: 'partners',
   EventFormat: 'eventFormat',
   Roles: 'roles',
+  Promo: 'promo',
   Payment: 'payment',
   FinalInfo: 'finalInfo',
-  Quiz: 'quiz',
+  VcForm: 'vcForm',
+  StartupForm: 'startupForm',
 } as const
