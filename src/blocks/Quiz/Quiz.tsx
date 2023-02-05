@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { BlockProps } from 'types/app'
-import { Title, Input } from 'ui'
+import { Title, Input, Checkbox } from 'ui'
 import * as S from './style'
 
 export const Quiz: FC<BlockProps> = () => {
@@ -10,11 +10,11 @@ export const Quiz: FC<BlockProps> = () => {
       <Input onChange={(value) => console.log(value)} />
       <S.CheckboxWrapper>
         <S.Label>Investment Fund Representative</S.Label>
-        <Input onChange={(value) => console.log(value)} type="checkbox" />
+        <Checkbox onChange={(value) => console.log(value)} />
       </S.CheckboxWrapper>
       <S.CheckboxWrapper>
         <S.Label>Private Investor</S.Label>
-        <Input onChange={(value) => console.log(value)} type="checkbox" />
+        <Checkbox onChange={(value) => console.log(value)} />
       </S.CheckboxWrapper>
     </S.Wrapper>
   )
