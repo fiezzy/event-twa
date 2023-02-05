@@ -15,6 +15,7 @@ export const EventFormat: FC<BlockProps> = (props) => {
 
   const handleFormatBtnClick = (format: 'online' | 'offline') => {
     if (userInfo && userInfo.role === 'partner') {
+      changeCurrentUserInfo!({ ...userInfo, eventFormat: format })
       onClose()
 
       return
