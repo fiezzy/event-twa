@@ -1,7 +1,6 @@
 import { FC } from 'react'
-import { Input } from 'twa-ui'
 import { BlockProps } from 'types/app'
-import { Title } from 'ui'
+import { Title, Input } from 'ui'
 import * as S from './style'
 
 export const Quiz: FC<BlockProps> = () => {
