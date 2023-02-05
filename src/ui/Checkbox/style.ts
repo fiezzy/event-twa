@@ -7,4 +7,13 @@ export const Wrapper = styled.div<{ isChecked?: boolean }>`
   background-color: ${({ theme, isChecked }) =>
     isChecked ? theme.color.btn : theme.color.bgSecondary};
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    path {
+      stroke: ${({ theme }) => theme.color.btnText};
+    }
+  }
 `

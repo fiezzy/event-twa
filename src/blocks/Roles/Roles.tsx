@@ -29,7 +29,11 @@ export const Roles: FC<BlockProps> = (props) => {
       <Label>{t('At the event you can be as following')}</Label>
       <S.ButtonsWrapper>
         {rolesData.map(({ role, price }) => {
-          return <Button onClick={() => handleRoleClick(price)}>{role}</Button>
+          return (
+            <Button key={role} onClick={() => handleRoleClick(price)}>
+              {role}
+            </Button>
+          )
         })}
       </S.ButtonsWrapper>
     </S.Wrapper>
