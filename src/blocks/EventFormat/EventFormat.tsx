@@ -1,16 +1,25 @@
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BlocksNames } from 'constants/app'
+import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Title, Label } from 'ui'
 import * as S from './style'
 
 export const EventFormat: FC<BlockProps> = (props) => {
-  const { changeActiveBlock, changeCurrentUserInfo } = props
+  const { changeActiveBlock, changeCurrentUserInfo, userInfo } = props
+
+  const { onClose } = useTelegram()
 
   const { t } = useTranslation('blockEventFormat')
 
   const handleFormatBtnClick = (format: 'online' | 'offline') => {
+    if (userInfo && userInfo.role === 'partner') {
+      onClose()
+
+      return
+    }
+
     changeCurrentUserInfo!({ eventFormat: format })
     changeActiveBlock(BlocksNames.Roles)
   }

@@ -11,6 +11,7 @@ export type Role =
   | 'Company'
   | 'Private fund'
   | 'Private investor'
+  | 'partner'
 
 export type Roles = {
   role: Role

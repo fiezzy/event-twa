@@ -7,19 +7,26 @@ import { partners } from './partnersData'
 import * as S from './style'
 
 export const Partners: FC<BlockProps> = (props) => {
-  const { changeActiveBlock } = props
+  const { changeActiveBlock, changeCurrentUserInfo } = props
 
   const { t } = useTranslation(['blockPartners'])
+
+  const handleBecomePartnerClick = () => {
+    changeCurrentUserInfo!({ role: 'partner' })
+    changeActiveBlock('eventFormat')
+  }
 
   return (
     <S.Wrapper>
       <Title>{t('Event Partners')}</Title>
       <S.DetailsWrapper>
         {partners.map((partner) => (
-          <Label>{partner}</Label>
+          <Label key={partner}>{partner}</Label>
         ))}
       </S.DetailsWrapper>
-      <Label>{t('Become a partner')}</Label>
+      <S.ClickableLable onClick={handleBecomePartnerClick}>
+        {t('Become a partner')}
+      </S.ClickableLable>
       <Button onClick={() => changeActiveBlock(BlocksNames.EventFormat)}>
         {t('Next')}
       </Button>

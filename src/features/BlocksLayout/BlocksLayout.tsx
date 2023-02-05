@@ -30,10 +30,16 @@ export const BlocksLayout: FC = () => {
         <EventFormat
           changeActiveBlock={changeActiveBlock}
           changeCurrentUserInfo={changeCurrentUserInfo}
+          userInfo={info}
         />
       )
     case BlocksNames.Partners:
-      return <Partners changeActiveBlock={changeActiveBlock} />
+      return (
+        <Partners
+          changeActiveBlock={changeActiveBlock}
+          changeCurrentUserInfo={changeCurrentUserInfo}
+        />
+      )
     case BlocksNames.Roles:
       return (
         <Roles
