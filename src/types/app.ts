@@ -32,6 +32,7 @@ export type Block =
   | 'partners'
   | 'eventFormat'
   | 'roles'
+  | 'quiz'
   | 'payment'
   | 'finalInfo'
 

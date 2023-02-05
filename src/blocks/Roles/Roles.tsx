@@ -20,7 +20,7 @@ export const Roles: FC<BlockProps> = (props) => {
     }
 
     alert(`USD: ${price.usd}, TON: ${price.ton}`)
-    changeActiveBlock(BlocksNames.FinalInfo)
+    changeActiveBlock(BlocksNames.Quiz)
   }
 
   return (

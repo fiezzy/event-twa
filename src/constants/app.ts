@@ -7,4 +7,5 @@ export const BlocksNames = {
   Roles: 'roles',
   Payment: 'payment',
   FinalInfo: 'finalInfo',
+  Quiz: 'quiz',
 } as const
