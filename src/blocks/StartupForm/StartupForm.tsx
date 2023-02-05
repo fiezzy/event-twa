@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import { FC, useCallback, useEffect } from 'react'
 import { Formik, FormikConfig } from 'formik'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
@@ -31,6 +31,8 @@ export const StartupForm: FC<BlockProps> = (props) => {
     },
     [changeCurrentUserInfo, onClose, userInfo]
   )
+
+  useEffect(() => {}, [])
 
   return (
     <S.Wrapper>
@@ -74,7 +76,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
                 value={values.teamMembersCount}
               />
             </S.FieldWrapper>
-            <Button type="submit">Далее</Button>
+            <Button onClick={handleSubmit}>Далее</Button>
           </S.Form>
         )}
       </Formik>

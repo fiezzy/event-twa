@@ -54,7 +54,8 @@ export const VcForm: FC<BlockProps> = (props) => {
   const getActiveFormField = (
     values: FormValues,
     handleChange: any,
-    setFieldValue: any
+    setFieldValue: any,
+    onSubmit: any
   ) => {
     const handleSelectOptionsChange = ({
       fieldName,
@@ -205,9 +206,7 @@ export const VcForm: FC<BlockProps> = (props) => {
               onChange={handleChange}
               value={values.socialLink}
             />
-            <Button form="vcForm" type="submit">
-              Next
-            </Button>
+            <Button onClick={onSubmit}>Next</Button>
           </S.FieldWrapper>
         )
     }
@@ -223,7 +222,12 @@ export const VcForm: FC<BlockProps> = (props) => {
       >
         {({ values, handleChange, setFieldValue, handleSubmit }) => (
           <S.Form id="vcForm" onSubmit={handleSubmit}>
-            {getActiveFormField(values, handleChange, setFieldValue)}
+            {getActiveFormField(
+              values,
+              handleChange,
+              setFieldValue,
+              handleSubmit
+            )}
           </S.Form>
         )}
       </Formik>
