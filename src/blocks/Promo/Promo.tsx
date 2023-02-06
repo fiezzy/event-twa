@@ -52,8 +52,8 @@ export const Promo: FC<BlockProps> = (props) => {
       <Title>{t('Enter your promo code')}</Title>
       <Input onChange={(e) => handlePromoChange(e.target.value)} />
       <S.BtnsWrapper>
-        <Button onClick={handleBtnSkipClick}>{t('Next')}</Button>
-        <Button onClick={handleBtnNextClick}>{t('Skip')}</Button>
+        <Button onClick={handleBtnSkipClick}>{t('Skip')}</Button>
+        <Button onClick={handleBtnNextClick}>{t('Next')}</Button>
       </S.BtnsWrapper>
     </S.Wrapper>
   )
