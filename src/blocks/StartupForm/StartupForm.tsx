@@ -30,12 +30,15 @@ export const StartupForm: FC<BlockProps> = (props) => {
   const handleSubmit = useCallback<FormikConfig<FormValues>['onSubmit']>(
     (values) => {
       changeCurrentUserInfo!({ ...userInfo, formData: values })
-      sendData(userInfo!)
     },
-    [changeCurrentUserInfo, sendData, userInfo]
+    [changeCurrentUserInfo, userInfo]
   )
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    if (userInfo?.formData) {
+      sendData(userInfo)
+    }
+  }, [sendData, userInfo])
 
   return (
     <S.Wrapper>

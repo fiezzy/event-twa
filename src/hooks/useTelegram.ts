@@ -8,7 +8,7 @@ export const useTelegram = () => {
   }
 
   const sendData = (userInfo: InfoType) => {
-    console.log(tg.sendData(JSON.stringify(userInfo)))
+    console.log(JSON.stringify(userInfo))
 
     tg.sendData(JSON.stringify(userInfo))
   }
@@ -18,5 +18,6 @@ export const useTelegram = () => {
     onClose,
     user: tg.initDataUnsafe?.user,
     sendData,
+    backButton: tg.BackButton,
   }
 }
