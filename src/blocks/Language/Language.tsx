@@ -5,12 +5,13 @@ import { Title, Label } from 'ui'
 import * as S from './style'
 
 export const Language: FC<BlockProps> = (props) => {
-  const { changeActiveBlock } = props
+  const { changeActiveBlock, changeCurrentUserInfo } = props
 
   const { t, i18n } = useTranslation('blockLanguage')
 
   const handleLangBtnClick = (language: 'en' | 'ru') => {
     i18n.changeLanguage(language)
+    changeCurrentUserInfo!({ language })
     changeActiveBlock('mainInfo')
   }
 

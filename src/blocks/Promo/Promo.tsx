@@ -1,16 +1,17 @@
 import { FC, useCallback, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { BlocksNames } from 'constants/app'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Button, Title, Input } from 'ui'
 import * as S from './style'
 
 export const Promo: FC<BlockProps> = (props) => {
-  const { userInfo, changeCurrentUserInfo } = props
+  const { userInfo, changeCurrentUserInfo, changeActiveBlock } = props
 
   const [typedPromocode, setTypedPromocode] = useState('')
 
-  const { sendData } = useTelegram()
+  const { sendData, tg } = useTelegram()
 
   const { t } = useTranslation('blockPromo')
 
@@ -18,15 +19,14 @@ export const Promo: FC<BlockProps> = (props) => {
     setTypedPromocode(value)
   }, [])
 
-  const handleBtnClick = () => {
-    if (!typedPromocode) {
-      sendData(userInfo!)
-
-      return
-    }
-
-    changeCurrentUserInfo!({ ...userInfo, promocode: typedPromocode })
+  const handleBtnSkipClick = () => {
     sendData(userInfo!)
+
+    return
+  }
+
+  const handleBtnNextClick = () => {
+    changeCurrentUserInfo!({ ...userInfo, promocode: typedPromocode })
   }
 
   useEffect(() => {
@@ -35,13 +35,25 @@ export const Promo: FC<BlockProps> = (props) => {
     }
   }, [sendData, userInfo])
 
+  useEffect(() => {
+    tg.onEvent('backButtonClicked', () => {
+      changeActiveBlock(BlocksNames.Roles)
+    })
+
+    return () => {
+      tg.offEvent('backButtonClicked', () => {
+        changeActiveBlock(BlocksNames.Roles)
+      })
+    }
+  }, [changeActiveBlock, tg])
+
   return (
     <S.Wrapper>
       <Title>{t('Enter your promo code')}</Title>
       <Input onChange={(e) => handlePromoChange(e.target.value)} />
       <S.BtnsWrapper>
-        <Button onClick={handleBtnClick}>{t('Skip')}</Button>
-        <Button onClick={handleBtnClick}>{t('Next')}</Button>
+        <Button onClick={handleBtnSkipClick}>{t('Next')}</Button>
+        <Button onClick={handleBtnNextClick}>{t('Skip')}</Button>
       </S.BtnsWrapper>
     </S.Wrapper>
   )

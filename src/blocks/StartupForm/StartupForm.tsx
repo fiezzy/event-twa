@@ -1,6 +1,7 @@
 import { FC, useCallback, useEffect } from 'react'
 import { Formik, FormikConfig } from 'formik'
 import { useTranslation } from 'react-i18next'
+import { BlocksNames } from 'constants/app'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Title, Input, Button } from 'ui'
@@ -14,11 +15,11 @@ export type FormValues = {
 }
 
 export const StartupForm: FC<BlockProps> = (props) => {
-  const { userInfo, changeCurrentUserInfo } = props
+  const { userInfo, changeCurrentUserInfo, changeActiveBlock } = props
 
   const { t } = useTranslation('blockStartupForm')
 
-  const { sendData } = useTelegram()
+  const { sendData, tg } = useTelegram()
 
   const initialValues: FormValues = {
     startupName: '',
@@ -39,6 +40,18 @@ export const StartupForm: FC<BlockProps> = (props) => {
       sendData(userInfo)
     }
   }, [sendData, userInfo])
+
+  useEffect(() => {
+    tg.onEvent('backButtonClicked', () => {
+      changeActiveBlock(BlocksNames.Roles)
+    })
+
+    return () => {
+      tg.offEvent('backButtonClicked', () => {
+        changeActiveBlock(BlocksNames.Roles)
+      })
+    }
+  }, [changeActiveBlock, tg])
 
   return (
     <S.Wrapper>

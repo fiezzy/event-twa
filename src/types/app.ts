@@ -40,7 +40,8 @@ export type Block =
   | 'finalInfo'
 
 export type BlockProps = {
-  changeActiveBlock: (block: Block) => void
+  changeActiveBlock: (block: Block, from?: Block) => void
   userInfo?: InfoType
   changeCurrentUserInfo?: (info: InfoType) => void
+  fromBlock?: Block
 }

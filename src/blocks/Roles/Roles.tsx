@@ -1,6 +1,7 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BlocksNames } from 'constants/app'
+import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Button, Label, Title } from 'ui'
 import { rolesData } from './rolesData'
@@ -9,6 +10,8 @@ import { Price, Role } from './types'
 
 export const Roles: FC<BlockProps> = (props) => {
   const { changeActiveBlock, changeCurrentUserInfo, userInfo } = props
+
+  const { tg } = useTelegram()
 
   const { t } = useTranslation('blockRoles')
 
@@ -28,9 +31,19 @@ export const Roles: FC<BlockProps> = (props) => {
         changeActiveBlock(BlocksNames.VcForm)
         break
     }
-
-    // changeActiveBlock(BlocksNames.Quiz)
   }
+
+  useEffect(() => {
+    tg.onEvent('backButtonClicked', () => {
+      changeActiveBlock(BlocksNames.EventFormat)
+    })
+
+    return () => {
+      tg.offEvent('backButtonClicked', () => {
+        changeActiveBlock(BlocksNames.EventFormat)
+      })
+    }
+  }, [changeActiveBlock, tg])
 
   return (
     <S.Wrapper>

@@ -5,6 +5,7 @@ import { FormValues as VCFormValues } from 'blocks/VcForm/types'
 import { FCWithChildren } from 'types/app'
 
 export type InfoType = {
+  language?: 'en' | 'ru'
   user?: string
   role?: Role
   promocode?: string

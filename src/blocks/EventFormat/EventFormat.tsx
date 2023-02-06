@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BlocksNames } from 'constants/app'
 import { useTelegram } from 'hooks/useTelegram'
@@ -7,16 +7,16 @@ import { Title, Label } from 'ui'
 import * as S from './style'
 
 export const EventFormat: FC<BlockProps> = (props) => {
-  const { changeActiveBlock, changeCurrentUserInfo, userInfo } = props
+  const { changeActiveBlock, changeCurrentUserInfo, userInfo, fromBlock } =
+    props
 
-  const { sendData } = useTelegram()
+  const { sendData, tg } = useTelegram()
 
   const { t } = useTranslation('blockEventFormat')
 
   const handleFormatBtnClick = (format: 'online' | 'offline') => {
     if (userInfo && userInfo.role === 'partner') {
       changeCurrentUserInfo!({ ...userInfo, eventFormat: format })
-      sendData(userInfo)
 
       return
     }
@@ -24,6 +24,24 @@ export const EventFormat: FC<BlockProps> = (props) => {
     changeCurrentUserInfo!({ eventFormat: format })
     changeActiveBlock(BlocksNames.Roles)
   }
+
+  useEffect(() => {
+    if (userInfo?.role === 'partner' && userInfo.eventFormat) {
+      sendData(userInfo)
+    }
+  }, [sendData, userInfo])
+
+  useEffect(() => {
+    tg.onEvent('backButtonClicked', () => {
+      changeActiveBlock(fromBlock!)
+    })
+
+    return () => {
+      tg.offEvent('backButtonClicked', () => {
+        changeActiveBlock(fromBlock!)
+      })
+    }
+  }, [changeActiveBlock, tg, fromBlock, userInfo, sendData])
 
   return (
     <S.Wrapper>

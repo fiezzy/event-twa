@@ -1,6 +1,7 @@
 import { FC, useCallback, useEffect, useState } from 'react'
 import { Formik, FormikConfig } from 'formik'
 import { useTranslation } from 'react-i18next'
+import { BlocksNames } from 'constants/app'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Title, Input, Checkbox, Button } from 'ui'
@@ -26,14 +27,14 @@ const filterSelectedOption = (
 }
 
 export const VcForm: FC<BlockProps> = (props) => {
-  const { userInfo, changeCurrentUserInfo } = props
+  const { userInfo, changeCurrentUserInfo, changeActiveBlock } = props
 
   const [activeFormField, setActiveFormField] =
     useState<ActiveFormField>('category')
 
   const { t } = useTranslation('blockVcForm')
 
-  const { sendData } = useTelegram()
+  const { sendData, tg } = useTelegram()
 
   const initialValues: FormValues = {
     category: [],
@@ -58,6 +59,18 @@ export const VcForm: FC<BlockProps> = (props) => {
       sendData(userInfo)
     }
   }, [sendData, userInfo])
+
+  useEffect(() => {
+    tg.onEvent('backButtonClicked', () => {
+      changeActiveBlock(BlocksNames.Roles)
+    })
+
+    return () => {
+      tg.offEvent('backButtonClicked', () => {
+        changeActiveBlock(BlocksNames.Roles)
+      })
+    }
+  }, [changeActiveBlock, tg])
 
   const getActiveFormField = (
     values: FormValues,

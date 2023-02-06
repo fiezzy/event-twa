@@ -14,13 +14,20 @@ import { BlocksNames } from 'constants/app'
 import { ActiveBlockContext, CurrentUserInfoContext } from 'context'
 
 export const BlocksLayout: FC = () => {
-  const { activeBlock, changeActiveBlock } = useContext(ActiveBlockContext)
+  const { activeBlock, changeActiveBlock, fromBlock } =
+    useContext(ActiveBlockContext)
 
   const { info, changeCurrentUserInfo } = useContext(CurrentUserInfoContext)
 
   switch (activeBlock) {
     case BlocksNames.Language:
-      return <Language changeActiveBlock={changeActiveBlock} />
+      return (
+        <Language
+          changeActiveBlock={changeActiveBlock}
+          changeCurrentUserInfo={changeCurrentUserInfo}
+          userInfo={info}
+        />
+      )
     case BlocksNames.MainInfo:
       return <MainInfo changeActiveBlock={changeActiveBlock} />
     case BlocksNames.InvestInfo:
@@ -30,6 +37,7 @@ export const BlocksLayout: FC = () => {
         <EventFormat
           changeActiveBlock={changeActiveBlock}
           changeCurrentUserInfo={changeCurrentUserInfo}
+          fromBlock={fromBlock}
           userInfo={info}
         />
       )
@@ -61,6 +69,7 @@ export const BlocksLayout: FC = () => {
         <VcForm
           changeActiveBlock={changeActiveBlock}
           changeCurrentUserInfo={changeCurrentUserInfo}
+          fromBlock={fromBlock}
           userInfo={info}
         />
       )
@@ -69,6 +78,7 @@ export const BlocksLayout: FC = () => {
         <StartupForm
           changeActiveBlock={changeActiveBlock}
           changeCurrentUserInfo={changeCurrentUserInfo}
+          fromBlock={fromBlock}
           userInfo={info}
         />
       )
