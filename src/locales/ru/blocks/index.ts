@@ -5,6 +5,8 @@ import blockMainInfo from './blockMainInfo.json'
 import blockPartners from './blockPartners.json'
 import blockPromo from './blockPromo.json'
 import blockRoles from './blockRoles.json'
+import blockStartupForm from './blockStartupForm.json'
+import blockVcForm from './blockVcForm.json'
 
 export {
   blockLanguage,
@@ -14,4 +16,6 @@ export {
   blockPartners,
   blockRoles,
   blockPromo,
+  blockStartupForm,
+  blockVcForm,
 }

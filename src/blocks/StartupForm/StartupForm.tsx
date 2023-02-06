@@ -1,5 +1,6 @@
 import { FC, useCallback, useEffect } from 'react'
 import { Formik, FormikConfig } from 'formik'
+import { useTranslation } from 'react-i18next'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Title, Input, Button } from 'ui'
@@ -14,6 +15,8 @@ export type FormValues = {
 
 export const StartupForm: FC<BlockProps> = (props) => {
   const { userInfo, changeCurrentUserInfo } = props
+
+  const { t } = useTranslation('blockStartupForm')
 
   const { onClose } = useTelegram()
 
@@ -44,7 +47,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
         {({ values, handleChange, handleSubmit }) => (
           <S.Form onSubmit={handleSubmit}>
             <S.FieldWrapper>
-              <Title>Название стартапа</Title>
+              <Title>{t('Startup name')}</Title>
               <Input
                 name="startupName"
                 onChange={handleChange}
@@ -52,7 +55,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
               />
             </S.FieldWrapper>
             <S.FieldWrapper>
-              <Title>Чем вы занимаетесь ?</Title>
+              <Title>{t('What do you do')} ?</Title>
               <Input
                 name="description"
                 onChange={handleChange}
@@ -60,7 +63,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
               />
             </S.FieldWrapper>
             <S.FieldWrapper>
-              <Title>Готовы ли вы пройти преакселлерацию ?</Title>
+              <Title>{t('Are you ready for pre-acceleration')} ?</Title>
               <Input
                 name="preAcceleration"
                 onChange={handleChange}
@@ -68,7 +71,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
               />
             </S.FieldWrapper>
             <S.FieldWrapper>
-              <Title>Сколько человек в вашей команде ?</Title>
+              <Title>{t('How many people are on your team')} ?</Title>
               <Input
                 name="teamMembersCount"
                 onChange={handleChange}

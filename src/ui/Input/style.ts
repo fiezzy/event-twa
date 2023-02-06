@@ -11,6 +11,7 @@ export const Input = styled.input<{ error?: boolean; disabled?: boolean }>`
   border: none;
   padding: 14px 16px;
   border-radius: 10px;
+  border: ${({ error }) => error && `1px solid red`};
 
   &::placeholder {
     color: ${({ theme }) => theme.color.hint};

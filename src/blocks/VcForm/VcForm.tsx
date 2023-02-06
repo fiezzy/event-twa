@@ -1,5 +1,6 @@
 import { FC, useCallback, useState } from 'react'
 import { Formik, FormikConfig } from 'formik'
+import { useTranslation } from 'react-i18next'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Title, Input, Checkbox, Button } from 'ui'
@@ -30,6 +31,8 @@ export const VcForm: FC<BlockProps> = (props) => {
   const [activeFormField, setActiveFormField] =
     useState<ActiveFormField>('category')
 
+  const { t } = useTranslation('blockVcForm')
+
   const { onClose } = useTelegram()
 
   const initialValues: FormValues = {
@@ -55,7 +58,8 @@ export const VcForm: FC<BlockProps> = (props) => {
     values: FormValues,
     handleChange: any,
     setFieldValue: any,
-    onSubmit: any
+    onSubmit: any,
+    errors: any
   ) => {
     const handleSelectOptionsChange = ({
       fieldName,
@@ -76,7 +80,7 @@ export const VcForm: FC<BlockProps> = (props) => {
       case 'category':
         return (
           <S.FieldWrapper>
-            <Title>{categoriesData.label}</Title>
+            <Title>{t('Category')}</Title>
             <S.CheckboxesWrapper>
               {categoriesData.values.map((value) => (
                 <S.CheckboxWrapper key={value}>
@@ -94,14 +98,14 @@ export const VcForm: FC<BlockProps> = (props) => {
               ))}
             </S.CheckboxesWrapper>
             <Button onClick={() => setActiveFormField('industriesOfInterest')}>
-              Next
+              {t('Next')}
             </Button>
           </S.FieldWrapper>
         )
       case 'industriesOfInterest':
         return (
           <S.FieldWrapper>
-            <Title>{industriesOfInterestData.label}</Title>
+            <Title>{t('Industries of interest')}</Title>
             <S.CheckboxesWrapper>
               {industriesOfInterestData.values.map((value) => (
                 <S.CheckboxWrapper key={value}>
@@ -119,14 +123,14 @@ export const VcForm: FC<BlockProps> = (props) => {
               ))}
             </S.CheckboxesWrapper>
             <Button onClick={() => setActiveFormField('investmentRange')}>
-              Next
+              {t('Next')}
             </Button>
           </S.FieldWrapper>
         )
       case 'investmentRange':
         return (
           <S.FieldWrapper>
-            <Title>{investmentRange.label}</Title>
+            <Title>{t('Investment Range per project')}</Title>
             <S.CheckboxesWrapper>
               {investmentRange.values.map((value) => (
                 <S.CheckboxWrapper key={value}>
@@ -144,53 +148,62 @@ export const VcForm: FC<BlockProps> = (props) => {
               ))}
             </S.CheckboxesWrapper>
             <Button onClick={() => setActiveFormField('companyName')}>
-              Next
+              {t('Next')}
             </Button>
           </S.FieldWrapper>
         )
       case 'companyName':
         return (
           <S.FieldWrapper>
-            <Title>Fund/Company Name</Title>
+            <Title>{t('Fund/Company Name')}</Title>
             <Input
+              error={errors.companyName}
               name="companyName"
               onChange={handleChange}
               value={values.companyName}
             />
-            <Button onClick={() => setActiveFormField('website')}>Next</Button>
+            <Button onClick={() => setActiveFormField('website')}>
+              {t('Next')}
+            </Button>
           </S.FieldWrapper>
         )
       case 'website':
         return (
           <S.FieldWrapper>
-            <Title>Fund/Company Name Website</Title>
+            <Title>{t('Fund/Company Name Website')}</Title>
             <Input
               name="website"
               onChange={handleChange}
               value={values.website}
             />
-            <Button onClick={() => setActiveFormField('link')}>Next</Button>
+            <Button onClick={() => setActiveFormField('link')}>
+              {t('Next')}
+            </Button>
           </S.FieldWrapper>
         )
       case 'link':
         return (
           <S.FieldWrapper>
-            <Title>LinkedIn & Crunchbase & AngelList profile links</Title>
+            <Title>
+              {t('LinkedIn & Crunchbase & AngelList profile links')}
+            </Title>
             <Input name="link" onChange={handleChange} value={values.link} />
-            <Button onClick={() => setActiveFormField('fullName')}>Next</Button>
+            <Button onClick={() => setActiveFormField('fullName')}>
+              {t('Next')}
+            </Button>
           </S.FieldWrapper>
         )
       case 'fullName':
         return (
           <S.FieldWrapper>
-            <Title>Full Name</Title>
+            <Title>{t('Full Name')}</Title>
             <Input
               name="fullName"
               onChange={handleChange}
               value={values.fullName}
             />
             <Button onClick={() => setActiveFormField('socialLink')}>
-              Next
+              {t('Next')}
             </Button>
           </S.FieldWrapper>
         )
@@ -198,15 +211,16 @@ export const VcForm: FC<BlockProps> = (props) => {
         return (
           <S.FieldWrapper>
             <Title>
-              Telegram or WhatsApp (to receive invitation and personal ticket to
-              livestream)
+              {t(
+                'Telegram or WhatsApp (to receive invitation and personal ticket tolivestream)'
+              )}
             </Title>
             <Input
               name="socialLink"
               onChange={handleChange}
               value={values.socialLink}
             />
-            <Button onClick={onSubmit}>Next</Button>
+            <Button onClick={onSubmit}>{t('Next')}</Button>
           </S.FieldWrapper>
         )
     }
@@ -220,13 +234,14 @@ export const VcForm: FC<BlockProps> = (props) => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
       >
-        {({ values, handleChange, setFieldValue, handleSubmit }) => (
+        {({ values, handleChange, setFieldValue, handleSubmit, errors }) => (
           <S.Form id="vcForm" onSubmit={handleSubmit}>
             {getActiveFormField(
               values,
               handleChange,
               setFieldValue,
-              handleSubmit
+              handleSubmit,
+              errors
             )}
           </S.Form>
         )}
