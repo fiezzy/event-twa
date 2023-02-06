@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from 'react'
+import { FC, useCallback, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
@@ -28,6 +28,12 @@ export const Promo: FC<BlockProps> = (props) => {
     changeCurrentUserInfo!({ ...userInfo, promocode: typedPromocode })
     sendData(userInfo!)
   }
+
+  useEffect(() => {
+    if (userInfo?.promocode) {
+      sendData(userInfo)
+    }
+  }, [sendData, userInfo])
 
   return (
     <S.Wrapper>

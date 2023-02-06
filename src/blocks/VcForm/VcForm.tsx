@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 import { Formik, FormikConfig } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { useTelegram } from 'hooks/useTelegram'
@@ -49,10 +49,15 @@ export const VcForm: FC<BlockProps> = (props) => {
   const handleSubmit = useCallback<FormikConfig<FormValues>['onSubmit']>(
     (values) => {
       changeCurrentUserInfo!({ ...userInfo, formData: values })
-      sendData(userInfo!)
     },
-    [changeCurrentUserInfo, sendData, userInfo]
+    [changeCurrentUserInfo, userInfo]
   )
+
+  useEffect(() => {
+    if (userInfo?.formData) {
+      sendData(userInfo)
+    }
+  }, [sendData, userInfo])
 
   const getActiveFormField = (
     values: FormValues,
