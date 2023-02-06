@@ -30,7 +30,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
   const handleSubmit = useCallback<FormikConfig<FormValues>['onSubmit']>(
     (values) => {
       changeCurrentUserInfo!({ ...userInfo, formData: values })
-      sendData(JSON.stringify(userInfo))
+      sendData(userInfo!)
     },
     [changeCurrentUserInfo, sendData, userInfo]
   )

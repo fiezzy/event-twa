@@ -20,13 +20,13 @@ export const Promo: FC<BlockProps> = (props) => {
 
   const handleBtnClick = () => {
     if (!typedPromocode) {
-      sendData(JSON.stringify(userInfo))
+      sendData(userInfo!)
 
       return
     }
 
     changeCurrentUserInfo!({ ...userInfo, promocode: typedPromocode })
-    sendData(JSON.stringify(userInfo))
+    sendData(userInfo!)
   }
 
   return (
