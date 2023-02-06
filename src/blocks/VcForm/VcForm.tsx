@@ -33,7 +33,7 @@ export const VcForm: FC<BlockProps> = (props) => {
 
   const { t } = useTranslation('blockVcForm')
 
-  const { onClose } = useTelegram()
+  const { sendData } = useTelegram()
 
   const initialValues: FormValues = {
     category: [],
@@ -49,9 +49,9 @@ export const VcForm: FC<BlockProps> = (props) => {
   const handleSubmit = useCallback<FormikConfig<FormValues>['onSubmit']>(
     (values) => {
       changeCurrentUserInfo!({ ...userInfo, formData: values })
-      onClose()
+      sendData(JSON.stringify(userInfo))
     },
-    [changeCurrentUserInfo, onClose, userInfo]
+    [changeCurrentUserInfo, sendData, userInfo]
   )
 
   const getActiveFormField = (

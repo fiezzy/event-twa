@@ -9,14 +9,14 @@ import * as S from './style'
 export const EventFormat: FC<BlockProps> = (props) => {
   const { changeActiveBlock, changeCurrentUserInfo, userInfo } = props
 
-  const { onClose } = useTelegram()
+  const { sendData } = useTelegram()
 
   const { t } = useTranslation('blockEventFormat')
 
   const handleFormatBtnClick = (format: 'online' | 'offline') => {
     if (userInfo && userInfo.role === 'partner') {
       changeCurrentUserInfo!({ ...userInfo, eventFormat: format })
-      onClose()
+      sendData(JSON.stringify(userInfo))
 
       return
     }

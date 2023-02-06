@@ -1,20 +1,16 @@
-import { FC, useCallback, useState, useContext } from 'react'
+import { FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-// import { BlocksNames } from 'constants/app'
-import { CurrentUserInfoContext } from 'context'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Button, Title, Input } from 'ui'
 import * as S from './style'
 
 export const Promo: FC<BlockProps> = (props) => {
-  // const { changeActiveBlock } = props
+  const { userInfo, changeCurrentUserInfo } = props
 
   const [typedPromocode, setTypedPromocode] = useState('')
 
-  const { info, changeCurrentUserInfo } = useContext(CurrentUserInfoContext)
-
-  const { onClose } = useTelegram()
+  const { sendData } = useTelegram()
 
   const { t } = useTranslation('blockPromo')
 
@@ -24,14 +20,13 @@ export const Promo: FC<BlockProps> = (props) => {
 
   const handleBtnClick = () => {
     if (!typedPromocode) {
-      // changeActiveBlock(BlocksNames.Payment)
-      onClose()
+      sendData(JSON.stringify(userInfo))
 
       return
     }
-    changeCurrentUserInfo({ ...info, promocode: typedPromocode })
-    // changeActiveBlock(BlocksNames.Payment)
-    onClose()
+
+    changeCurrentUserInfo!({ ...userInfo, promocode: typedPromocode })
+    sendData(JSON.stringify(userInfo))
   }
 
   return (

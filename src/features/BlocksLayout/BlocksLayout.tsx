@@ -49,7 +49,13 @@ export const BlocksLayout: FC = () => {
         />
       )
     case BlocksNames.Promo:
-      return <Promo changeActiveBlock={changeActiveBlock} />
+      return (
+        <Promo
+          changeActiveBlock={changeActiveBlock}
+          changeCurrentUserInfo={changeCurrentUserInfo}
+          userInfo={info}
+        />
+      )
     case BlocksNames.VcForm:
       return (
         <VcForm
