@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Label, Title } from 'ui'
+import { Label } from 'ui'
 import * as S from './style'
 
 type TicketProps = {
@@ -13,7 +13,7 @@ export const Ticket: FC<TicketProps> = (props) => {
 
   return (
     <S.Wrapper onClick={onClick}>
-      <Title>{title}</Title>
+      <S.Title>{title}</S.Title>
       <Label>{label}</Label>
     </S.Wrapper>
   )

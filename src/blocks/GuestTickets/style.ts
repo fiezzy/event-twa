@@ -17,4 +17,5 @@ export const TicketsWrapper = styled.div`
 
 export const Label = styled(UILabel)`
   cursor: pointer;
+  color: ${({ theme }) => theme.color.link};
 `
