@@ -77,7 +77,11 @@ export const BlocksLayout: FC = () => {
       )
     case BlocksNames.GuestTickets:
       return (
-        <GuestTickets changeActiveBlock={changeActiveBlock} userInfo={info} />
+        <GuestTickets
+          changeActiveBlock={changeActiveBlock}
+          changeCurrentUserInfo={changeCurrentUserInfo}
+          userInfo={info}
+        />
       )
     default:
       return <div />

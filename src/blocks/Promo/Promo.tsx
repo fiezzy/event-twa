@@ -19,30 +19,24 @@ export const Promo: FC<BlockProps> = (props) => {
     setTypedPromocode(value)
   }, [])
 
-  const handleBtnSkipClick = () => {
-    sendData(userInfo!)
-
-    return
-  }
-
   const handleBtnNextClick = () => {
     changeCurrentUserInfo!({ ...userInfo, promocode: typedPromocode })
   }
 
   useEffect(() => {
-    if (userInfo?.promocode) {
+    if (userInfo && userInfo.promocode && userInfo.ticket) {
       sendData(userInfo)
     }
   }, [sendData, userInfo])
 
   useEffect(() => {
     tg.onEvent('backButtonClicked', () => {
-      changeActiveBlock(BlocksNames.Roles)
+      changeActiveBlock(BlocksNames.GuestTickets)
     })
 
     return () => {
       tg.offEvent('backButtonClicked', () => {
-        changeActiveBlock(BlocksNames.Roles)
+        changeActiveBlock(BlocksNames.GuestTickets)
       })
     }
   }, [changeActiveBlock, tg])

@@ -11,6 +11,7 @@ export type InfoType = {
   promocode?: string
   eventFormat?: string
   formData?: VCFormValues | StartupFormValues
+  ticket?: string
 }
 type CurrentUserInfoContextValues = {
   info: InfoType
