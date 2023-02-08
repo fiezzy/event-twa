@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+export const Image = styled.img`
+  border-radius: 50px;
+  min-width: 290px;
   width: 100%;
-  img {
-    border-radius: 100px;
-  }
+  max-width: 600px;
 `

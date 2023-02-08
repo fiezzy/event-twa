@@ -17,7 +17,7 @@ export type FormValues = {
 export const StartupForm: FC<BlockProps> = (props) => {
   const { userInfo, changeCurrentUserInfo, changeActiveBlock } = props
 
-  const { t } = useTranslation('blockStartupForm')
+  const { t } = useTranslation()
 
   const { sendData, tg } = useTelegram()
 

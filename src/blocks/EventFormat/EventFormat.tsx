@@ -12,7 +12,7 @@ export const EventFormat: FC<BlockProps> = (props) => {
 
   const { sendData, tg } = useTelegram()
 
-  const { t } = useTranslation('blockEventFormat')
+  const { t } = useTranslation()
 
   const handleFormatBtnClick = (format: 'online' | 'offline') => {
     if (userInfo && userInfo.role === 'partner') {
@@ -41,7 +41,7 @@ export const EventFormat: FC<BlockProps> = (props) => {
         changeActiveBlock(fromBlock!)
       })
     }
-  }, [changeActiveBlock, tg, fromBlock,])
+  }, [changeActiveBlock, tg, fromBlock])
 
   return (
     <S.Wrapper>

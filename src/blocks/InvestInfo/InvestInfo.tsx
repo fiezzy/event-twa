@@ -11,7 +11,7 @@ export const InvestInfo: FC<BlockProps> = (props) => {
 
   const { tg } = useTelegram()
 
-  const { t } = useTranslation('blockInvestInfo')
+  const { t } = useTranslation()
 
   useEffect(() => {
     tg.onEvent('backButtonClicked', () => {

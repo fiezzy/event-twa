@@ -13,7 +13,7 @@ export const Roles: FC<BlockProps> = (props) => {
 
   const { tg } = useTelegram()
 
-  const { t } = useTranslation('blockRoles')
+  const { t } = useTranslation()
 
   const handleRoleClick = (role: Role, price: Price) => {
     changeCurrentUserInfo!({ ...userInfo, role })

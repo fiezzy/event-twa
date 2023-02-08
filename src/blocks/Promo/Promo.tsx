@@ -13,7 +13,7 @@ export const Promo: FC<BlockProps> = (props) => {
 
   const { sendData, tg } = useTelegram()
 
-  const { t } = useTranslation('blockPromo')
+  const { t } = useTranslation()
 
   const handlePromoChange = useCallback((value: string) => {
     setTypedPromocode(value)

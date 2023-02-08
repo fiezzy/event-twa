@@ -12,7 +12,7 @@ export const Partners: FC<BlockProps> = (props) => {
 
   const { tg } = useTelegram()
 
-  const { t } = useTranslation(['blockPartners'])
+  const { t } = useTranslation()
 
   const handleBecomePartnerClick = () => {
     changeCurrentUserInfo!({ role: 'partner' })

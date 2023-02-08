@@ -32,7 +32,7 @@ export const VcForm: FC<BlockProps> = (props) => {
   const [activeFormField, setActiveFormField] =
     useState<ActiveFormField>('category')
 
-  const { t } = useTranslation('blockVcForm')
+  const { t } = useTranslation()
 
   const { sendData, tg } = useTelegram()
 

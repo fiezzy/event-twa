@@ -11,7 +11,7 @@ export const MainInfo: FC<BlockProps> = (props) => {
 
   const { tg } = useTelegram()
 
-  const { t } = useTranslation(['blockMainInfo'])
+  const { t } = useTranslation()
 
   useEffect(() => {
     tg.onEvent('backButtonClicked', () => {
@@ -34,12 +34,9 @@ export const MainInfo: FC<BlockProps> = (props) => {
       <S.DetailsWrapper>
         <Label>
           {t(
-            'The first interactive online crypto event where 5 startups will present their projects'
+            'Event dedicated to startups, investments and venture capital funds'
           )}
         </Label>
-        <Label>250 {t('spectators in the hall')}</Label>
-        <Label>1000+ {t('people online')}</Label>
-        <Label>13 {t('venture funds and investors')}</Label>
       </S.DetailsWrapper>
 
       <Title>{t('Activities')}</Title>
