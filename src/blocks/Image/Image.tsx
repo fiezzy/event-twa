@@ -1,21 +1,11 @@
-import { FC, useContext } from 'react'
-import { BlocksNames } from 'constants/app'
-import { ActiveBlockContext } from 'context'
-import { SvgMain, SvgInvest, SvgSecond } from 'ui/icons'
+import { FC } from 'react'
+import MAIN from './assets/main.jpeg'
+import * as S from './style'
 
 export const Image: FC = () => {
-  const { activeBlock } = useContext(ActiveBlockContext)
-
-  if (activeBlock === BlocksNames.InvestInfo) {
-    return <SvgInvest />
-  }
-
-  if (
-    activeBlock === BlocksNames.Language ||
-    activeBlock === BlocksNames.MainInfo
-  ) {
-    return <SvgMain />
-  }
-
-  return <SvgSecond />
+  return (
+    <S.Wrapper>
+      <img alt="#" src={MAIN} />
+    </S.Wrapper>
+  )
 }

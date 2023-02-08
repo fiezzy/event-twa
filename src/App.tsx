@@ -1,4 +1,5 @@
 import { FC, useEffect, useContext } from 'react'
+import { Image } from 'blocks'
 import { BlocksNames } from 'constants/app'
 import { CurrentUserInfoContext, ActiveBlockContext } from 'context'
 import { BlocksLayout } from 'features/BlocksLayout/BlocksLayout'
@@ -28,6 +29,7 @@ const App: FC = () => {
 
   return (
     <Layout>
+      <Image />
       <BlocksLayout />
     </Layout>
   )

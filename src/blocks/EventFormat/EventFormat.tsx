@@ -41,7 +41,7 @@ export const EventFormat: FC<BlockProps> = (props) => {
         changeActiveBlock(fromBlock!)
       })
     }
-  }, [changeActiveBlock, tg, fromBlock, userInfo, sendData])
+  }, [changeActiveBlock, tg, fromBlock,])
 
   return (
     <S.Wrapper>
