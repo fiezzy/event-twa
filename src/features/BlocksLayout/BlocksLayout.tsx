@@ -7,8 +7,8 @@ import {
   VcForm,
   Promo,
   StartupForm,
+  GuestTickets,
 } from 'blocks'
-import { Partners } from 'blocks'
 import { EventFormat } from 'blocks/EventFormat/EventFormat'
 import { BlocksNames } from 'constants/app'
 import { ActiveBlockContext, CurrentUserInfoContext } from 'context'
@@ -74,6 +74,10 @@ export const BlocksLayout: FC = () => {
           fromBlock={fromBlock}
           userInfo={info}
         />
+      )
+    case BlocksNames.GuestTickets:
+      return (
+        <GuestTickets changeActiveBlock={changeActiveBlock} userInfo={info} />
       )
     default:
       return <div />

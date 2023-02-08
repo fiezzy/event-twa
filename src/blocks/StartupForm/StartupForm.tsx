@@ -12,6 +12,7 @@ export type FormValues = {
   description: string
   preAcceleration: string
   teamMembersCount: number
+  pitchdeck: string
 }
 
 export const StartupForm: FC<BlockProps> = (props) => {
@@ -26,6 +27,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
     description: '',
     preAcceleration: '',
     teamMembersCount: 0,
+    pitchdeck: '',
   }
 
   const handleSubmit = useCallback<FormikConfig<FormValues>['onSubmit']>(
@@ -63,7 +65,11 @@ export const StartupForm: FC<BlockProps> = (props) => {
         {({ values, handleChange, handleSubmit }) => (
           <S.Form onSubmit={handleSubmit}>
             <S.FieldWrapper>
-              <Title>{t('Startup name')}</Title>
+              <Title>
+                {t(
+                  userInfo!.role === 'Startup' ? 'Startup name' : 'Company name'
+                )}
+              </Title>
               <Input
                 name="startupName"
                 onChange={handleChange}
@@ -93,6 +99,14 @@ export const StartupForm: FC<BlockProps> = (props) => {
                 onChange={handleChange}
                 type="number"
                 value={values.teamMembersCount}
+              />
+            </S.FieldWrapper>
+            <S.FieldWrapper>
+              <Title>Pitchdeck</Title>
+              <Input
+                name="pitchdeck"
+                onChange={handleChange}
+                value={values.pitchdeck}
               />
             </S.FieldWrapper>
             <Button onClick={handleSubmit}>Далее</Button>

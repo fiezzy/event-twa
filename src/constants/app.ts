@@ -10,4 +10,6 @@ export const BlocksNames = {
   FinalInfo: 'finalInfo',
   VcForm: 'vcForm',
   StartupForm: 'startupForm',
+  Company: 'company',
+  GuestTickets: 'guestTickets',
 } as const

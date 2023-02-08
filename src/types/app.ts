@@ -38,6 +38,8 @@ export type Block =
   | 'startupForm'
   | 'payment'
   | 'finalInfo'
+  | 'company'
+  | 'guestTickets'
 
 export type BlockProps = {
   changeActiveBlock: (block: Block, from?: Block) => void

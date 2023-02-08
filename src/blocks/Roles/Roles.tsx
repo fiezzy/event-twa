@@ -20,11 +20,13 @@ export const Roles: FC<BlockProps> = (props) => {
 
     switch (role) {
       case 'Guest':
-        changeActiveBlock(BlocksNames.Promo)
+        changeActiveBlock(BlocksNames.GuestTickets)
         break
       case 'Company':
+        changeActiveBlock(BlocksNames.StartupForm, BlocksNames.Company)
+        break
       case 'Startup':
-        changeActiveBlock(BlocksNames.StartupForm)
+        changeActiveBlock(BlocksNames.StartupForm, BlocksNames.StartupForm)
         break
       case 'Investor':
       case 'VC':

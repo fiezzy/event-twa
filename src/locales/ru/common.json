@@ -9,8 +9,9 @@
   "Full Name": "Полное имя",
   "Telegram or WhatsApp (to receive invitation and personal ticket tolivestream)": "Telegram или WhatsApp (для получения приглашения и персонального билета на прямая трансляция)",
   "Startup name": "Название стартапа",
+  "Company name": "Название компании",
   "What do you do": "Чем вы занимаетесь",
-  "Are you ready for pre-acceleration": "Готовы ли вы пройти преакселлераци",
+  "Are you ready for pre-acceleration": "Готовы ли вы пройти преакселлерацию",
   "How many people are on your team": "Сколько человек в вашей команде",
   "Choose a role": "Выберите роль",
   "At the event you can be as following": "На мероприятии вы можете быть в качестве следующих",
@@ -39,5 +40,9 @@
   "Choose format": "Выберите формат",
   "The event can be attended both online and offline at the Opus Tower (RichmanHouse) in Dubai": "На мероприятии можно участвовать как онлайн, так и оффлайн в Opus Tower (RichmanHouse) в Дубае",
   "Online": "Онлайн",
-  "Offline": "Офлайн"
+  "Offline": "Офлайн",
+  "Admission to the event": "Вход на мероприятие",
+  "Admission to the event and the after-event party": "Вход на мероприятие и вечеринка после мероприятия",
+  "Admission to the event, party and special C-Level guest area": "Вход на мероприятие, вечеринка и специальная C-Level зона для гостей",
+  "I have a promocode": "У меня есть промокод"
 }
