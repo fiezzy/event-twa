@@ -17,11 +17,11 @@ export const GuestTickets: FC<BlockProps> = (props) => {
   const ticketsData = useMemo(
     () => [
       {
-        title: 'Buisness · $ 100',
+        title: `Business · $ ${userInfo?.eventFormat === 'online' ? 25 : 100}`,
         label: t(
           'A visitor can attend the event, communicate with a crypto community'
         ),
-        type: 'buisness',
+        type: 'business',
       },
       {
         title: 'VIP · $ 1000',
@@ -38,7 +38,7 @@ export const GuestTickets: FC<BlockProps> = (props) => {
         type: 'cLevel',
       },
     ],
-    [t]
+    [t, userInfo]
   )
 
   const handleTicketClick = useCallback(
