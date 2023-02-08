@@ -17,3 +17,10 @@ export const ButtonsWrapper = styled.div`
 export const Button = styled(UIButton)`
   width: 50%;
 `
+
+export const LabelsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+`

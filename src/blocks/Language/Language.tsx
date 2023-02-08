@@ -18,8 +18,10 @@ export const Language: FC<BlockProps> = (props) => {
   return (
     <S.Wrapper>
       <Title>Dubai Crypto Thursday</Title>
-      <Label>Please, select your language</Label>
-      <Label>Пожалуйста, выберите ваш язык</Label>
+      <S.LabelsWrapper>
+        <Label>Please, select your language</Label>
+        <Label>Пожалуйста, выберите ваш язык</Label>
+      </S.LabelsWrapper>
 
       <S.ButtonsWrapper>
         <S.Button onClick={() => handleLangBtnClick('en')}>English</S.Button>
