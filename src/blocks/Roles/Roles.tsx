@@ -26,8 +26,8 @@ export const Roles: FC<BlockProps> = (props) => {
       case 'Startup':
         changeActiveBlock(BlocksNames.StartupForm)
         break
-      case 'Private investor':
-      case 'Private fund':
+      case 'Investor':
+      case 'VC':
         changeActiveBlock(BlocksNames.VcForm)
         break
     }
@@ -53,7 +53,7 @@ export const Roles: FC<BlockProps> = (props) => {
         {rolesData.map(({ role, price }) => {
           return (
             <Button key={role} onClick={() => handleRoleClick(role, price)}>
-              {role}
+              {t(role as any)}
             </Button>
           )
         })}

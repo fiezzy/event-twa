@@ -20,11 +20,11 @@ export const rolesData: Roles[] = [
     },
   },
   {
-    role: 'Private fund',
+    role: 'VC',
     price: 'free',
   },
   {
-    role: 'Private investor',
+    role: 'Investor',
     price: 'free',
   },
 ]

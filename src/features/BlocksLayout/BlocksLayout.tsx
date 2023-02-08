@@ -41,13 +41,6 @@ export const BlocksLayout: FC = () => {
           userInfo={info}
         />
       )
-    case BlocksNames.Partners:
-      return (
-        <Partners
-          changeActiveBlock={changeActiveBlock}
-          changeCurrentUserInfo={changeCurrentUserInfo}
-        />
-      )
     case BlocksNames.Roles:
       return (
         <Roles

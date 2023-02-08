@@ -28,11 +28,11 @@ export const InvestInfo: FC<BlockProps> = (props) => {
   return (
     <S.Wrapper>
       <Title>{t('Event investment pool')}</Title>
-      <Label>113,000 TON ($ 250,000)</Label>
+      <Label>652,000 TON ($ 1,500,000)</Label>
       <Label>
-        {t('Startups can receive investment offers right at the event')}!
+        {t('Startups can receive investment offers right at the event')}
       </Label>
-      <Button onClick={() => changeActiveBlock(BlocksNames.Partners)}>
+      <Button onClick={() => changeActiveBlock(BlocksNames.EventFormat)}>
         {t('Next')}
       </Button>
     </S.Wrapper>

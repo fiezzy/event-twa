@@ -9,8 +9,8 @@ export type Role =
   | 'Guest'
   | 'Startup'
   | 'Company'
-  | 'Private fund'
-  | 'Private investor'
+  | 'VC'
+  | 'Investor'
   | 'partner'
 
 export type Roles = {
