@@ -10,26 +10,14 @@ export const EventFormat: FC<BlockProps> = (props) => {
   const { changeActiveBlock, changeCurrentUserInfo, userInfo, fromBlock } =
     props
 
-  const { sendData, tg } = useTelegram()
+  const { tg } = useTelegram()
 
   const { t } = useTranslation()
 
   const handleFormatBtnClick = (format: 'online' | 'offline') => {
-    if (userInfo && userInfo.role === 'partner') {
-      changeCurrentUserInfo!({ ...userInfo, eventFormat: format })
-
-      return
-    }
-
-    changeCurrentUserInfo!({ eventFormat: format })
+    changeCurrentUserInfo!({ ...userInfo, eventFormat: format })
     changeActiveBlock(BlocksNames.Roles)
   }
-
-  useEffect(() => {
-    if (userInfo?.role === 'partner' && userInfo.eventFormat) {
-      sendData(userInfo)
-    }
-  }, [sendData, userInfo])
 
   useEffect(() => {
     tg.onEvent('backButtonClicked', () => {
