@@ -18,23 +18,38 @@ export const GuestTickets: FC<BlockProps> = (props) => {
     () => [
       {
         title: `Business · $ ${userInfo?.eventFormat === 'online' ? 25 : 100}`,
-        label: t(
-          'A visitor can attend the event, communicate with a crypto community'
-        ),
+        labels: [
+          t('Offline visiting in Dubai'),
+          t('Catering'),
+          t('Champagne'),
+          t('High-quality networking'),
+          t('NFT Gallery'),
+          t('Startup performance'),
+          t('Community Chat'),
+        ],
         type: 'business',
       },
       {
         title: 'VIP · $ 1000',
-        label: t(
-          'A visitor has all the benefits of a Standard ticket, participate in the charity auction and access to the afterparty.'
-        ),
+        labels: [
+          t(
+            'Business + AfterParty in a secret location with -Dubai C level VC and organizers'
+          ),
+          t('Food, Alcohol + Transfer (included)'),
+        ],
         type: 'vip',
       },
       {
         title: 'C-level · $ 3500',
-        label: t(
-          'A visitor has all the benefits of a VIP ticket + access to the C-Level area.'
-        ),
+        labels: [
+          t(
+            'Business + AfterParty + Private Lounge on the 11th floor with VC funds, TOP C level Crypto Community Dubai and event organizers'
+          ),
+          t('Expensive alcohol'),
+          t('Food'),
+          t('High-quality networking'),
+          t('Separate chat room'),
+        ],
         type: 'cLevel',
       },
     ],
@@ -77,17 +92,17 @@ export const GuestTickets: FC<BlockProps> = (props) => {
       {userInfo?.eventFormat === 'online' ? (
         <S.TicketsWrapper>
           <Ticket
-            label={ticketsData[0].label}
+            labels={ticketsData[0].labels || []}
             onClick={() => handleTicketClick(ticketsData[0].type)}
             title={ticketsData[0].title}
           />
         </S.TicketsWrapper>
       ) : (
         <S.TicketsWrapper>
-          {ticketsData.map(({ title, label, type }) => (
+          {ticketsData.map(({ title, labels, type }) => (
             <Ticket
               key={title}
-              label={label}
+              labels={labels || []}
               onClick={() => handleTicketClick(type)}
               title={title}
             />

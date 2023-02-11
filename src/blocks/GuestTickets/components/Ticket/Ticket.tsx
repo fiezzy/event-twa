@@ -4,17 +4,19 @@ import * as S from './style'
 
 type TicketProps = {
   title: string
-  label: string
+  labels: string[]
   onClick: () => void
 }
 
 export const Ticket: FC<TicketProps> = (props) => {
-  const { title, label, onClick } = props
+  const { title, labels, onClick } = props
 
   return (
     <S.Wrapper onClick={onClick}>
       <S.Title>{title}</S.Title>
-      <Label>{label}</Label>
+      {labels.map((label) => (
+        <Label key={label}>{label}</Label>
+      ))}
     </S.Wrapper>
   )
 }
