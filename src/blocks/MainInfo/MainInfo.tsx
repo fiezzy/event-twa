@@ -39,7 +39,7 @@ export const MainInfo: FC<BlockProps> = (props) => {
         </Label>
         <Label>{t('300+ VC')}</Label>
         <Label>{t('100+ Investors')}</Label>
-        <Label>{t('20+ Startups')}</Label>
+        <Label>{t('12+ Startups')}</Label>
       </S.DetailsWrapper>
 
       <Title>{t('Activities')}</Title>
