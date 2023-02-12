@@ -7,6 +7,8 @@ import { Title } from 'ui'
 import { Ticket } from './components'
 import * as S from './style'
 
+//test
+
 export const GuestTickets: FC<BlockProps> = (props) => {
   const { changeActiveBlock, userInfo, changeCurrentUserInfo } = props
 
