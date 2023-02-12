@@ -18,15 +18,17 @@ export const GuestTickets: FC<BlockProps> = (props) => {
     () => [
       {
         title: `Business · $ ${userInfo?.eventFormat === 'online' ? 25 : 100}`,
-        labels: [
-          t('Offline visiting in Dubai'),
-          t('Catering'),
-          t('Champagne'),
-          t('High-quality networking'),
-          t('NFT Gallery'),
-          t('Startup performance'),
-          t('Community Chat'),
-        ],
+        labels:
+          userInfo?.eventFormat === 'online'
+            ? [t('Live Stream'), t('Chat'), t('Recording')]
+            : [
+                t('Offline visiting in Dubai'),
+                t('Catering'),
+                t('High-quality networking'),
+                t('NFT Gallery'),
+                t('Startup performance'),
+                t('Community Chat'),
+              ],
         type: 'business',
       },
       {
@@ -35,7 +37,7 @@ export const GuestTickets: FC<BlockProps> = (props) => {
           t(
             'Business + AfterParty in a secret location with -Dubai C level VC and organizers'
           ),
-          t('Food, Alcohol + Transfer (included)'),
+          t('Transfer (included)'),
         ],
         type: 'vip',
       },
@@ -45,8 +47,6 @@ export const GuestTickets: FC<BlockProps> = (props) => {
           t(
             'Business + AfterParty + Private Lounge on the 11th floor with VC funds, TOP C level Crypto Community Dubai and event organizers'
           ),
-          t('Expensive alcohol'),
-          t('Food'),
           t('High-quality networking'),
           t('Separate chat room'),
         ],
