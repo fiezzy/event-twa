@@ -6,6 +6,7 @@ import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
 import { Title, Input, Button } from 'ui'
 import * as S from './style'
+import { validationSchema } from './validationSchema'
 
 export type FormValues = {
   startupName: string
@@ -61,8 +62,10 @@ export const StartupForm: FC<BlockProps> = (props) => {
         enableReinitialize
         initialValues={initialValues}
         onSubmit={handleSubmit}
+        validateOnMount={true}
+        validationSchema={validationSchema}
       >
-        {({ values, handleChange, handleSubmit }) => (
+        {({ values, handleChange, handleSubmit, errors }) => (
           <S.Form onSubmit={handleSubmit}>
             <S.FieldWrapper>
               <Title>
@@ -109,7 +112,12 @@ export const StartupForm: FC<BlockProps> = (props) => {
                 value={values.pitchdeck}
               />
             </S.FieldWrapper>
-            <Button onClick={handleSubmit}>Далее</Button>
+            <Button
+              isDisabled={Object.keys(errors).length > 0}
+              onClick={handleSubmit}
+            >
+              Далее
+            </Button>
           </S.Form>
         )}
       </Formik>

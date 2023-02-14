@@ -1,9 +1,9 @@
-import { object, string } from 'yup'
+import { object, string, array } from 'yup'
 
 export const validationSchema = object().shape({
-  category: string().required(),
-  industriesOfInterest: string().required(),
-  investmentRange: string().required(),
+  category: array().of(string().required()).required(),
+  industriesOfInterest: array().of(string().required()).required(),
+  investmentRange: array().of(string().required()).required(),
   companyName: string().required(),
   website: string().required(),
   link: string().required(),

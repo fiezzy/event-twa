@@ -40,7 +40,7 @@ export const Partners: FC<BlockProps> = (props) => {
         ))}
       </S.DetailsWrapper>
       <Button onClick={handleBecomePartnerClick}>
-        {t('Become a partner')}
+        {/* {t('Become a partner')} */}
       </Button>
       <Button
         onClick={() =>

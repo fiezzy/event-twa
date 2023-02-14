@@ -34,7 +34,7 @@ export const MainInfo: FC<BlockProps> = (props) => {
       <S.DetailsWrapper>
         <Label>
           {t(
-            'Event dedicated to startups, investments and venture capital funds'
+            'DCVC* – The event dedicated to startups, investments and venture funds will be held in Dubai on Thursday'
           )}
         </Label>
         <Label>{t('300+ VC')}</Label>

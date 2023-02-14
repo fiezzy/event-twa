@@ -17,7 +17,7 @@ export const Language: FC<BlockProps> = (props) => {
 
   return (
     <S.Wrapper>
-      <Title>Dubai Crypto Thursday</Title>
+      <Title>Dubai Crypto Ventures Capital Thursday</Title>
       <S.LabelsWrapper>
         <Label>Please, select your language</Label>
         <Label>Пожалуйста, выберите ваш язык</Label>

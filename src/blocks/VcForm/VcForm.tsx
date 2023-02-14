@@ -12,6 +12,7 @@ import {
 } from './formFieldsData'
 import * as S from './style'
 import { ActiveFormField, FormValues } from './types'
+import { validationSchema } from './validationSchema'
 
 const filterSelectedOption = (
   selectedOptions: string[],
@@ -79,6 +80,8 @@ export const VcForm: FC<BlockProps> = (props) => {
     onSubmit: any,
     errors: any
   ) => {
+    console.log(errors)
+
     const handleSelectOptionsChange = ({
       fieldName,
       optionName,
@@ -100,7 +103,7 @@ export const VcForm: FC<BlockProps> = (props) => {
           <S.FieldWrapper>
             <Title>{t('Category')}</Title>
             <S.CheckboxesWrapper>
-              {categoriesData.values.map((value) => (
+              {categoriesData.values.map((value, idx) => (
                 <S.CheckboxWrapper key={value}>
                   <S.Label>{value}</S.Label>
                   <Checkbox
@@ -115,7 +118,10 @@ export const VcForm: FC<BlockProps> = (props) => {
                 </S.CheckboxWrapper>
               ))}
             </S.CheckboxesWrapper>
-            <Button onClick={() => setActiveFormField('industriesOfInterest')}>
+            <Button
+              isDisabled={values.category.length === 0}
+              onClick={() => setActiveFormField('industriesOfInterest')}
+            >
               {t('Next')}
             </Button>
           </S.FieldWrapper>
@@ -140,7 +146,10 @@ export const VcForm: FC<BlockProps> = (props) => {
                 </S.CheckboxWrapper>
               ))}
             </S.CheckboxesWrapper>
-            <Button onClick={() => setActiveFormField('investmentRange')}>
+            <Button
+              isDisabled={values.industriesOfInterest.length === 0}
+              onClick={() => setActiveFormField('investmentRange')}
+            >
               {t('Next')}
             </Button>
           </S.FieldWrapper>
@@ -165,7 +174,10 @@ export const VcForm: FC<BlockProps> = (props) => {
                 </S.CheckboxWrapper>
               ))}
             </S.CheckboxesWrapper>
-            <Button onClick={() => setActiveFormField('companyName')}>
+            <Button
+              isDisabled={values.investmentRange.length === 0}
+              onClick={() => setActiveFormField('companyName')}
+            >
               {t('Next')}
             </Button>
           </S.FieldWrapper>
@@ -175,12 +187,14 @@ export const VcForm: FC<BlockProps> = (props) => {
           <S.FieldWrapper>
             <Title>{t('Fund/Company Name')}</Title>
             <Input
-              error={errors.companyName}
               name="companyName"
               onChange={handleChange}
               value={values.companyName}
             />
-            <Button onClick={() => setActiveFormField('website')}>
+            <Button
+              isDisabled={errors.companyName}
+              onClick={() => setActiveFormField('website')}
+            >
               {t('Next')}
             </Button>
           </S.FieldWrapper>
@@ -194,7 +208,10 @@ export const VcForm: FC<BlockProps> = (props) => {
               onChange={handleChange}
               value={values.website}
             />
-            <Button onClick={() => setActiveFormField('link')}>
+            <Button
+              isDisabled={errors.website}
+              onClick={() => setActiveFormField('link')}
+            >
               {t('Next')}
             </Button>
           </S.FieldWrapper>
@@ -206,7 +223,10 @@ export const VcForm: FC<BlockProps> = (props) => {
               {t('LinkedIn & Crunchbase & AngelList profile links')}
             </Title>
             <Input name="link" onChange={handleChange} value={values.link} />
-            <Button onClick={() => setActiveFormField('fullName')}>
+            <Button
+              isDisabled={errors.link}
+              onClick={() => setActiveFormField('fullName')}
+            >
               {t('Next')}
             </Button>
           </S.FieldWrapper>
@@ -220,7 +240,10 @@ export const VcForm: FC<BlockProps> = (props) => {
               onChange={handleChange}
               value={values.fullName}
             />
-            <Button onClick={() => setActiveFormField('socialLink')}>
+            <Button
+              isDisabled={errors.fullName}
+              onClick={() => setActiveFormField('socialLink')}
+            >
               {t('Next')}
             </Button>
           </S.FieldWrapper>
@@ -238,7 +261,12 @@ export const VcForm: FC<BlockProps> = (props) => {
               onChange={handleChange}
               value={values.socialLink}
             />
-            <Button onClick={onSubmit}>{t('Next')}</Button>
+            <Button
+              isDisabled={Object.keys(errors).length > 0}
+              onClick={onSubmit}
+            >
+              {t('Next')}
+            </Button>
           </S.FieldWrapper>
         )
     }
@@ -251,6 +279,8 @@ export const VcForm: FC<BlockProps> = (props) => {
         enableReinitialize
         initialValues={initialValues}
         onSubmit={handleSubmit}
+        validateOnMount={true}
+        validationSchema={validationSchema}
       >
         {({ values, handleChange, setFieldValue, handleSubmit, errors }) => (
           <S.Form id="vcForm" onSubmit={handleSubmit}>
