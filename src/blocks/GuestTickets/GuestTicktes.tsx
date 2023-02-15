@@ -25,7 +25,6 @@ export const GuestTickets: FC<BlockProps> = (props) => {
             ? [t('Live Stream'), t('Chat'), t('Recording')]
             : [
                 t('Offline visiting in Dubai'),
-                t('Catering'),
                 t('High-quality networking'),
                 t('NFT Gallery'),
                 t('Startup performance'),
@@ -39,7 +38,6 @@ export const GuestTickets: FC<BlockProps> = (props) => {
           t(
             'Business + AfterParty in a secret location with -Dubai C level VC and organizers'
           ),
-          t('Transfer (included)'),
         ],
         type: 'vip',
       },
