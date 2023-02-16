@@ -49,9 +49,7 @@ export const MainInfo: FC<BlockProps> = (props) => {
             'All guests will spend time in good company, networking and a pleasant banquet with'
           )}
         </Label>
-        <Label>
-          {t('Catering, Drinks, Binance NFT Gallery for Dubai Guests')}
-        </Label>
+        <Label>{t('Binance NFT Gallery for Dubai Guests')}</Label>
       </S.DetailsWrapper>
       <S.DetailsWrapper>
         <Button
