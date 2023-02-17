@@ -49,7 +49,7 @@ export const MainInfo: FC<BlockProps> = (props) => {
             'All guests will spend time in good company, networking and a pleasant banquet with'
           )}
         </Label>
-        <Label>{t('Binance NFT Gallery for Dubai Guests')}</Label>
+        <Label>{t('DISARTIV NFT Gallery for Dubai Guests')}</Label>
       </S.DetailsWrapper>
       <S.DetailsWrapper>
         <Button
@@ -57,10 +57,13 @@ export const MainInfo: FC<BlockProps> = (props) => {
             changeActiveBlock(BlocksNames.InvestInfo, BlocksNames.MainInfo)
           }
         >
-          {t('Next')}
+          {t('Registration')}
         </Button>
         <Button onClick={() => changeActiveBlock(BlocksNames.EventFormat)}>
-          {t('Participate')}
+          {t('Jump to tickets')}
+        </Button>
+        <Button onClick={() => changeActiveBlock(BlocksNames.Promo)}>
+          {t('Promocode')}
         </Button>
       </S.DetailsWrapper>
     </S.Wrapper>

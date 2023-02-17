@@ -40,11 +40,11 @@ export const EventFormat: FC<BlockProps> = (props) => {
         )}
       </Label>
       <S.ButtonsWrapper>
-        <S.Button onClick={() => handleFormatBtnClick('online')}>
-          {t('Online')}
-        </S.Button>
         <S.Button onClick={() => handleFormatBtnClick('offline')}>
           {t('Offline')}
+        </S.Button>
+        <S.Button onClick={() => handleFormatBtnClick('online')}>
+          {t('Online')}
         </S.Button>
       </S.ButtonsWrapper>
     </S.Wrapper>

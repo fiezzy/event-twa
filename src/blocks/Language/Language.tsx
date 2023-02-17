@@ -24,8 +24,8 @@ export const Language: FC<BlockProps> = (props) => {
       </S.LabelsWrapper>
 
       <S.ButtonsWrapper>
-        <S.Button onClick={() => handleLangBtnClick('en')}>English</S.Button>
         <S.Button onClick={() => handleLangBtnClick('ru')}>Русский</S.Button>
+        <S.Button onClick={() => handleLangBtnClick('en')}>English</S.Button>
       </S.ButtonsWrapper>
     </S.Wrapper>
   )
