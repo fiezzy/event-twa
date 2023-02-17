@@ -37,9 +37,10 @@ export const MainInfo: FC<BlockProps> = (props) => {
             'DCVC* – The event dedicated to startups, investments and venture funds will be held in Dubai on Thursday'
           )}
         </Label>
-        <Label>{t('300+ VC')}</Label>
+        <Label>{t('50+ VC')}</Label>
         <Label>{t('100+ Investors')}</Label>
         <Label>{t('12+ Startups')}</Label>
+        <Label>{t('120+ Crypto Executives')}</Label>
       </S.DetailsWrapper>
 
       <Title>{t('Activities')}</Title>
