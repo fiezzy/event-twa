@@ -51,6 +51,9 @@ export const Roles: FC<BlockProps> = (props) => {
     <S.Wrapper>
       <Title>{t('Choose a role')}</Title>
       <Label>{t('At the event you can be as following')}</Label>
+      <Button onClick={() => changeActiveBlock(BlocksNames.Promo)}>
+        {t('Promocode')}
+      </Button>
       <S.ButtonsWrapper>
         {rolesData.map(({ role, price }) => {
           return (

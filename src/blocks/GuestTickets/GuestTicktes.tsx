@@ -3,11 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { BlocksNames } from 'constants/app'
 import { useTelegram } from 'hooks/useTelegram'
 import { BlockProps } from 'types/app'
-import { Title } from 'ui'
+import { Button, Title } from 'ui'
 import { Ticket } from './components'
 import * as S from './style'
-
-//test
 
 export const GuestTickets: FC<BlockProps> = (props) => {
   const { changeActiveBlock, userInfo, changeCurrentUserInfo } = props
@@ -89,6 +87,9 @@ export const GuestTickets: FC<BlockProps> = (props) => {
   return (
     <S.Wrapper>
       <Title>{t('Choose your ticket')}</Title>
+      <Button onClick={() => changeActiveBlock(BlocksNames.Promo)}>
+        {t('Promocode')}
+      </Button>
       {userInfo?.eventFormat === 'online' ? (
         <S.TicketsWrapper>
           <Ticket
@@ -109,7 +110,6 @@ export const GuestTickets: FC<BlockProps> = (props) => {
           ))}
         </S.TicketsWrapper>
       )}
-      <S.Label onClick={handlePromoClick}>{t('I have a promocode')}</S.Label>
     </S.Wrapper>
   )
 }

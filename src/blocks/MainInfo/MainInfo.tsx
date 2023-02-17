@@ -63,9 +63,6 @@ export const MainInfo: FC<BlockProps> = (props) => {
         <Button onClick={() => changeActiveBlock(BlocksNames.EventFormat)}>
           {t('Jump to tickets')}
         </Button>
-        <Button onClick={() => changeActiveBlock(BlocksNames.Promo)}>
-          {t('Promocode')}
-        </Button>
       </S.DetailsWrapper>
     </S.Wrapper>
   )
