@@ -61,10 +61,10 @@ export const GuestTickets: FC<BlockProps> = (props) => {
     [changeCurrentUserInfo, userInfo]
   )
 
-  const handlePromoClick = useCallback(() => {
-    changeCurrentUserInfo!({ ...userInfo, ticket: 'buisness' })
-    changeActiveBlock(BlocksNames.Promo)
-  }, [changeActiveBlock, changeCurrentUserInfo, userInfo])
+  // const handlePromoClick = useCallback(() => {
+  //   changeCurrentUserInfo!({ ...userInfo, ticket: 'buisness' })
+  //   changeActiveBlock(BlocksNames.Promo)
+  // }, [changeActiveBlock, changeCurrentUserInfo, userInfo])
 
   useEffect(() => {
     if (userInfo && userInfo.ticket) {

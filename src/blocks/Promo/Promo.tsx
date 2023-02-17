@@ -24,7 +24,7 @@ export const Promo: FC<BlockProps> = (props) => {
   }
 
   useEffect(() => {
-    if (userInfo && userInfo.promocode && userInfo.ticket) {
+    if (userInfo && userInfo.promocode) {
       sendData(userInfo)
     }
   }, [sendData, userInfo])
