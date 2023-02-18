@@ -43,15 +43,6 @@ export const MainInfo: FC<BlockProps> = (props) => {
         <Label>{t('120+ Crypto Executives')}</Label>
       </S.DetailsWrapper>
 
-      <Title>{t('Activities')}</Title>
-      <S.DetailsWrapper>
-        <Label>
-          {t(
-            'All guests will spend time in good company, networking and a pleasant banquet with'
-          )}
-        </Label>
-        <Label>{t('DISARTIV NFT Gallery for Dubai Guests')}</Label>
-      </S.DetailsWrapper>
       <S.DetailsWrapper>
         <Button
           onClick={() =>

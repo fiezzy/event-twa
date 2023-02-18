@@ -4,6 +4,5 @@ export const validationSchema = object().shape({
   startupName: string().required(),
   description: string().required(),
   preAcceleration: string().required(),
-  teamMembersCount: number().required(),
-  pitchdeck: string().required(),
+  teamMembersCount: number().required().positive(),
 })

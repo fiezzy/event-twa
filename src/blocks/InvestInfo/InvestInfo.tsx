@@ -27,8 +27,6 @@ export const InvestInfo: FC<BlockProps> = (props) => {
 
   return (
     <S.Wrapper>
-      <Title>{t('Event investment pool')}</Title>
-      <Label>652,000 TON ($ 1,500,000)</Label>
       <Label>
         {t('Startups can receive investment offers right at the event')}
       </Label>

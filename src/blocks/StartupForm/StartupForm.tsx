@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect } from 'react'
+import { ChangeEvent, FC, useCallback, useEffect } from 'react'
 import { Formik, FormikConfig } from 'formik'
 import { useTranslation } from 'react-i18next'
 import { BlocksNames } from 'constants/app'
@@ -65,7 +65,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
         validateOnMount={true}
         validationSchema={validationSchema}
       >
-        {({ values, handleChange, handleSubmit, errors }) => (
+        {({ values, handleChange, handleSubmit, errors, setFieldValue }) => (
           <S.Form onSubmit={handleSubmit}>
             <S.FieldWrapper>
               <Title>
@@ -76,6 +76,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
               <Input
                 name="startupName"
                 onChange={handleChange}
+                placeholder={t('Enter name')}
                 value={values.startupName}
               />
             </S.FieldWrapper>
@@ -84,6 +85,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
               <Input
                 name="description"
                 onChange={handleChange}
+                placeholder={t('Describe what you do')}
                 value={values.description}
               />
             </S.FieldWrapper>
@@ -92,6 +94,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
               <Input
                 name="preAcceleration"
                 onChange={handleChange}
+                placeholder={t('Yes / no')}
                 value={values.preAcceleration}
               />
             </S.FieldWrapper>
@@ -99,7 +102,15 @@ export const StartupForm: FC<BlockProps> = (props) => {
               <Title>{t('How many people are on your team')} ?</Title>
               <Input
                 name="teamMembersCount"
-                onChange={handleChange}
+                onChange={(evt: ChangeEvent<HTMLInputElement>) => {
+                  if (Number(evt.target.value) < 0) {
+                    setFieldValue('teamMembersCount', 0)
+
+                    return
+                  }
+
+                  handleChange(evt)
+                }}
                 type="number"
                 value={values.teamMembersCount}
               />
@@ -109,6 +120,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
               <Input
                 name="pitchdeck"
                 onChange={handleChange}
+                placeholder={t('Enter link')}
                 value={values.pitchdeck}
               />
             </S.FieldWrapper>
@@ -116,7 +128,7 @@ export const StartupForm: FC<BlockProps> = (props) => {
               isDisabled={Object.keys(errors).length > 0}
               onClick={handleSubmit}
             >
-              Далее
+              {t('Next')}
             </Button>
           </S.Form>
         )}

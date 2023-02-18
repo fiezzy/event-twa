@@ -28,7 +28,7 @@
   "date": "23 февраля, Opus Tower в Дубае",
   "About the event": "О мероприятии",
   "DCVC* – The event dedicated to startups, investments and venture funds will be held in Dubai on Thursday": "DCVC* - мероприятие, посвященное стартапам, инвестициям и венчурным фондам, пройдет в Дубае в четверг",
-  "50+ VC": "50+ VCs <$4млн",
+  "50+ VC": "50+ VCs",
   "100+ Investors": "100+ Инвесторов",
   "12+ Startups": "12+ Стартапов",
   "120+ Crypto Executives": "120+ Крипто руководителей",
@@ -62,5 +62,9 @@
   "A visitor has all the benefits of a Standard ticket, participate in the charity auction and access to the afterparty.": "Посетитель имеет все преимущества стандартного билета, участие в благотворительном аукционе и доступ на afterparty.",
   "A visitor has all the benefits of a VIP ticket + access to the C-Level area.": "Посетитель имеет все преимущества VIP-билета + доступ в зону C-Level.",
   "I have a promocode": "У меня есть промокод",
-  "Choose your ticket": "Выберите билет"
+  "Choose your ticket": "Выберите билет",
+  "Enter name": "Введите название",
+  "Describe what you do": "Опишите чем вы занимаетесь",
+  "Yes / no": "Да / нет",
+  "Enter link": "Введите ссылку"
 }
