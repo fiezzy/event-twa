@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BlockProps } from 'types/app'
-import { Title, Label } from 'ui'
+import { Title } from 'ui'
 import * as S from './style'
 
 export const Language: FC<BlockProps> = (props) => {
   const { changeActiveBlock, changeCurrentUserInfo } = props
 
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
 
   const handleLangBtnClick = (language: 'en' | 'ru') => {
     i18n.changeLanguage(language)
