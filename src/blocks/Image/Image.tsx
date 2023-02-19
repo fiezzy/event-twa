@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import MAIN from './assets/main.jpeg'
+import MAIN from './assets/main.png'
 import * as S from './style'
 
 export const Image: FC = () => {

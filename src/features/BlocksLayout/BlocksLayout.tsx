@@ -2,7 +2,6 @@ import { FC, useContext } from 'react'
 import {
   Language,
   MainInfo,
-  InvestInfo,
   Roles,
   VcForm,
   Promo,
@@ -30,8 +29,6 @@ export const BlocksLayout: FC = () => {
       )
     case BlocksNames.MainInfo:
       return <MainInfo changeActiveBlock={changeActiveBlock} />
-    case BlocksNames.InvestInfo:
-      return <InvestInfo changeActiveBlock={changeActiveBlock} />
     case BlocksNames.EventFormat:
       return (
         <EventFormat
