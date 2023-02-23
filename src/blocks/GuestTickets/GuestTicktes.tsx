@@ -17,7 +17,7 @@ export const GuestTickets: FC<BlockProps> = (props) => {
   const ticketsData = useMemo(
     () => [
       {
-        title: `Business · $ ${userInfo?.eventFormat === 'online' ? 25 : 100}`,
+        title: `Business · $ ${userInfo?.eventFormat === 'online' ? 0 : 100}`,
         labels:
           userInfo?.eventFormat === 'online'
             ? [t('Live Stream'), t('Chat'), t('Recording')]
@@ -60,11 +60,6 @@ export const GuestTickets: FC<BlockProps> = (props) => {
     },
     [changeCurrentUserInfo, userInfo]
   )
-
-  // const handlePromoClick = useCallback(() => {
-  //   changeCurrentUserInfo!({ ...userInfo, ticket: 'buisness' })
-  //   changeActiveBlock(BlocksNames.Promo)
-  // }, [changeActiveBlock, changeCurrentUserInfo, userInfo])
 
   useEffect(() => {
     if (userInfo && userInfo.ticket) {
